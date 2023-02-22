@@ -20,7 +20,7 @@ yarn add x6-graph
 [mindmap demo](https://codesandbox.io/s/x6-hooks-react-mindmap-demo-2t6954?file=/src/App.js)
 
 ### vue
-[vue demo](https://codesandbox.io/s/x6-hooks-vue-demo-j19slj)
+[vue demo](https://codesandbox.io/s/x6-graph-demo-qq5tds?file=/src/App.vue)
 
 
 ## examples

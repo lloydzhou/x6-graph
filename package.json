@@ -1,0 +1,46 @@
+{
+  "name": "x6-graph",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "react.js",
+    "react.d.ts",
+    "vue.js",
+    "vue.d.ts"
+  ],
+  "keywords": [
+    "antv",
+    "x6",
+    "graph",
+    "svg",
+    "vue",
+    "react",
+    "typescript"
+  ],
+  "module": "react.js",
+  "author": "lloydzhou",
+  "license": "MIT",
+  "homepage": "https://github.com/lloydzhou/x6-graph",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lloydzhou/x6-graph.git"
+  },
+  "dependencies": {},
+  "scripts": {
+    "update": "git submodule update",
+    "install:react": "cd react && yarn install",
+    "install:vue": "cd vue && yarn install",
+    "install:dev": "run-p install:react install:vue",
+    "build:react": "cd react && yarn run build",
+    "build:vue": "cd vue && yarn run build",
+    "build:source": "run-p build:react build:vue",
+    "build:clean": "rm -rf dist && mkdir -p dist",
+    "build:copy:react": "cp react/dist/Graph.d.ts ./react.d.ts && cp react/dist/graph.js ./react.js",
+    "build:copy:vue": "cp vue/dist/Graph.d.ts ./vue.d.ts && cp vue/dist/graph.js ./vue.js",
+    "build:copy": "run-p build:copy:react build:copy:vue",
+    "build": "run-s build:source build:clean build:copy"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

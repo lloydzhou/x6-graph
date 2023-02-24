@@ -24,6 +24,9 @@ yarn add x6-graph
 
 
 ## examples
+> x6-graph子组件的模式对业务逻辑做拆分组合（也可以用这个模式抽象一些常用的组件）例如：
+
+
 ### react
 ```
 import { Graph, useGraphInstance } from 'x6-graph/react'
@@ -45,6 +48,31 @@ function App() {
     </div>
   )
 }
+```
+
+将x6-plugin-history抽象成组件使用
+```
+import { History } from "@antv/x6-plugin-history";
+import { Graph, useGraphInstance } from 'x6-graph/react'
+
+const HistoryPlugin = () => {
+  const graph = useGraphInstance()
+  useEffect(() => {
+    const history = new History({
+      enabled: true,
+    })
+    graph.use(history)
+    return () => {
+      history.dispose()
+    }
+  }, [])
+  return null
+}
+
+// 使用
+<Graph grid width={800} height={600} ref={gRef}>
+  <HistoryPlugin />
+</Graph>
 ```
 
 ### vue
